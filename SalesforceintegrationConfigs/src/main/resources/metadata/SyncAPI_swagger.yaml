@@ -1,0 +1,13 @@
+openapi: 3.0.1
+info:
+  title: SyncAPI
+  description: API Definition of SyncAPI
+  version: 1.0.0
+servers:
+- url: http://localhost:8290/sync
+paths:
+  /accounts:
+    get:
+      responses:
+        default:
+          description: Default response

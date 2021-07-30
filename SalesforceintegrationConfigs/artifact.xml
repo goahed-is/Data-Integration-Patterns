@@ -11,4 +11,13 @@
     <artifact name="SyncAccountsFromDBTask" groupId="br.com.goahead.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
         <file>src/main/synapse-config/sequences/SyncAccountsFromDBTask.xml</file>
     </artifact>
+    <artifact name="SyncAPI" groupId="br.com.goahead.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/SyncAPI.xml</file>
+    </artifact>
+    <artifact name="SyncAPI_swagger" groupId="br.com.goahead.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/SyncAPI_swagger.yaml</file>
+    </artifact>
+    <artifact name="SyncAPI_metadata" groupId="br.com.goahead.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/SyncAPI_metadata.yaml</file>
+    </artifact>
 </artifacts>

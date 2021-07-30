@@ -5,4 +5,10 @@
     <artifact name="RDBMSFlagAccounts" groupId="br.com.goahead.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
         <file>src/main/synapse-config/endpoints/RDBMSFlagAccounts.xml</file>
     </artifact>
+    <artifact name="SyncAccountDataSeq" groupId="br.com.goahead.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/SyncAccountDataSeq.xml</file>
+    </artifact>
+    <artifact name="SyncAccountsFromDBTask" groupId="br.com.goahead.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/SyncAccountsFromDBTask.xml</file>
+    </artifact>
 </artifacts>

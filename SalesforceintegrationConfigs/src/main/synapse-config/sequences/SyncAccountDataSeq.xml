@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="SyncAccountDataSeq" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <property expression="json-eval($)" name="DataServiceResponse" scope="default" type="STRING"/>
+    <salesforcerest.init>
+        <accessToken>6Cel800D5e0000045KH48885e00000365z551npp3t0EX2us8HMJHqUkhXVluxx8Den51E5wLgNH93D2TbLywyJsFz3NvHVIL979tcVkbfl</accessToken>
+        <apiVersion>v1.0</apiVersion>
+        <hostName>https://login.salesforce.com</hostName>
+        <clientSecret>8E097863B0B395C3C45FD6CD0B2371333E5BC93086650C85F2297EAFE3943AB9</clientSecret>
+        <clientId>3MVG9cHH2bfKACZZkRaAMonPZ_GjYY5uVyaNqf.y1jbRwJhs9VfppBU51hX1T4mrLzXmi3HqrX3UVNXXo8._6</clientId>
+    </salesforcerest.init>
+    <log>
+        <property name="Afterinit" value="Salesforce init OK"/>
+    </log>
+    <payloadFactory media-type="json">
+        <format>$1</format>
+        <args>
+            <arg evaluator="xml" expression="$ctx:DataServiceResponse"/>
+        </args>
+    </payloadFactory>
+    <iterate description="Iterate over Accounts" expression="//Accounts/Account" id="AccountsIteration">
+        <target>
+            <sequence>
+                <payloadFactory media-type="json">
+                    <format>{
+"Name": "$1",
+"AccountNumber": "$2",
+"Type": "$3",
+"BillingState": "$4",
+"ShippingState": "$5",
+"Ownership": "$6",
+"Industry": "$7",
+"NumberOfEmployees": "$8",
+"Phone": "$9"
+}</format>
+                    <args>
+                        <arg evaluator="xml" expression="//Details/Name"/>
+                        <arg evaluator="xml" expression="//Details/AccountNumber"/>
+                        <arg evaluator="xml" expression="//Details/Type"/>
+                        <arg evaluator="xml" expression="//Details/BillingState"/>
+                        <arg evaluator="xml" expression="//Details/ShippingState"/>
+                        <arg evaluator="xml" expression="//Details/Ownership"/>
+                        <arg evaluator="xml" expression="//Details/Industry"/>
+                        <arg evaluator="xml" expression="//Details/NumberOfEmployees"/>
+                        <arg evaluator="xml" expression="//Details/Phone"/>
+                    </args>
+                </payloadFactory>
+                <log>
+                    <property expression="json-eval($)" name="RequestToSalesforce"/>
+                </log>
+                <property expression="json-eval($)" name="RequestToSalesforce" scope="default" type="STRING"/>
+                <salesforcerest.create>
+                    <sObjectName>Accounts</sObjectName>
+                    <fieldAndValue>{$ctx:RequestToSalesforce}</fieldAndValue>
+                </salesforcerest.create>
+            </sequence>
+        </target>
+    </iterate>
+</sequence>

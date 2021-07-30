@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="SyncAccountsFromDBTask" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <header name="Accept" scope="transport" value="application/json"/>
+    <call>
+        <endpoint key="RDBMSGetNewAccounts"/>
+    </call>
+    <log level="custom">
+        <property expression="json-eval($)" name="DataServiceResponse"/>
+    </log>
+    <filter regex="true" source="boolean(//Accounts/Account)">
+        <then>
+            <log level="custom">
+                <property name="DataServiceResponseValidation" value="Found accounts in database"/>
+            </log>
+            <sequence key="SyncAccountDataSeq"/>
+            <call>
+                <endpoint key="RDBMSFlagAccounts"/>
+            </call>
+            <log level="custom">
+                <property name="AccountsSyncedLog" value="Account information in moved to Salesforce sucessfully"/>
+            </log>
+        </then>
+        <else>
+            <log level="custom">
+                <property name="NoAccountsSyncedLog" value="No new accounts to be synchronized with Salesforce"/>
+            </log>
+        </else>
+    </filter>
+</sequence>

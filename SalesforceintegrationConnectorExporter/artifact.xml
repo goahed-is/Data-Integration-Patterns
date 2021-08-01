@@ -2,4 +2,7 @@
     <artifact name="salesforcerest-connector" groupId="br.com.goahead.lib" version="1.1.0" type="synapse/lib" serverRole="EnterpriseServiceBus">
         <file>salesforcerest-connector-1.1.0.zip</file>
     </artifact>
+    <artifact name="file-connector" groupId="br.com.goahead.lib" version="4.0.5" type="synapse/lib" serverRole="EnterpriseServiceBus">
+        <file>file-connector-4.0.5.zip</file>
+    </artifact>
 </artifacts>

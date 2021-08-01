@@ -10,4 +10,18 @@
             <respond/>
         </faultSequence>
     </resource>
+    <resource methods="GET" uri-template="/fileaccounts">
+        <inSequence>
+            <file.read>
+                <path>{}</path>
+                <enableLock>true</enableLock>
+            </file.read>
+            <sequence key="SyncAccountsFromDBSeq"/>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence>
+            <respond/>
+        </faultSequence>
+    </resource>
 </api>

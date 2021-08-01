@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="SalesforceinboundErrorHanlder" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <log category="ERROR">
+        <property expression="$body" name="ErrorWhileProcessing"/>
+    </log>
+</sequence>

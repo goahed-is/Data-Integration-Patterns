@@ -19,8 +19,12 @@
     <artifact.types>jaggery/app=zip,synapse/priority-executor=xml,synapse/inbound-endpoint=xml,service/rule=aar,synapse/message-store=xml,event/stream=json,service/meta=xml,datasource/datasource=xml,synapse/proxy-service=xml,bpel/workflow=zip,synapse/sequence=xml,synapse/endpointTemplate=xml,carbon/application=car,wso2/gadget=dar,synapse/api=xml,synapse/event-source=xml,synapse/message-processors=xml,event/receiver=xml,lib/dataservice/validator=jar,synapse/template=xml,synapse/endpoint=xml,lib/carbon/ui=jar,lib/synapse/mediator=jar,synapse/metadata=yaml,event/publisher=xml,synapse/local-entry=xml,synapse/task=xml,webapp/jaxws=war,registry/resource=zip,synapse/configuration=xml,service/axis2=aar,synapse/lib=zip,synapse/sequenceTemplate=xml,event/execution-plan=siddhiql,service/dataservice=dbs,web/application=war,lib/library/bundle=jar</artifact.types>
     <br.com.goahead.endpoint_._RDBMSGetNewAccounts>capp/EnterpriseServiceBus</br.com.goahead.endpoint_._RDBMSGetNewAccounts>
     <br.com.goahead.sequence_._SyncAccountDataSeq>capp/EnterpriseServiceBus</br.com.goahead.sequence_._SyncAccountDataSeq>
-    <br.com.goahead.lib_._salesforcerest-connector>capp/EnterpriseServiceBus</br.com.goahead.lib_._salesforcerest-connector>
     <br.com.goahead.endpoint_._RDBMSFlagAccounts>capp/EnterpriseServiceBus</br.com.goahead.endpoint_._RDBMSFlagAccounts>
+    <br.com.goahead.sequence_._SalesforceinboundErrorHanlder>capp/EnterpriseServiceBus</br.com.goahead.sequence_._SalesforceinboundErrorHanlder>
+    <br.com.goahead.lib_._salesforcerest-connector>capp/EnterpriseServiceBus</br.com.goahead.lib_._salesforcerest-connector>
+    <br.com.goahead.sequence_._SalesforceinboundHanlder>capp/EnterpriseServiceBus</br.com.goahead.sequence_._SalesforceinboundHanlder>
+    <br.com.goahead.inbound-endpoint_._SalesforceinboundEP>capp/EnterpriseServiceBus</br.com.goahead.inbound-endpoint_._SalesforceinboundEP>
+    <br.com.goahead.lib_._file-connector>capp/EnterpriseServiceBus</br.com.goahead.lib_._file-connector>
     <br.com.goahead.metadata_._SyncAPI_metadata>capp/EnterpriseServiceBus</br.com.goahead.metadata_._SyncAPI_metadata>
     <br.com.goahead.dataservice_._RDBMSDataService>capp/DataServicesServer</br.com.goahead.dataservice_._RDBMSDataService>
     <br.com.goahead.metadata_._SyncAPI_swagger>capp/EnterpriseServiceBus</br.com.goahead.metadata_._SyncAPI_swagger>
@@ -31,6 +35,30 @@
       <artifactId>RDBMSDataService</artifactId>
       <version>1.0.0</version>
       <type>dbs</type>
+    </dependency>
+    <dependency>
+      <groupId>br.com.goahead.lib</groupId>
+      <artifactId>salesforcerest-connector</artifactId>
+      <version>1.1.0</version>
+      <type>zip</type>
+    </dependency>
+    <dependency>
+      <groupId>br.com.goahead.inbound-endpoint</groupId>
+      <artifactId>SalesforceinboundEP</artifactId>
+      <version>1.0.0</version>
+      <type>xml</type>
+    </dependency>
+    <dependency>
+      <groupId>br.com.goahead.sequence</groupId>
+      <artifactId>SyncAccountDataSeq</artifactId>
+      <version>1.0.0</version>
+      <type>xml</type>
+    </dependency>
+    <dependency>
+      <groupId>br.com.goahead.lib</groupId>
+      <artifactId>file-connector</artifactId>
+      <version>4.0.5</version>
+      <type>zip</type>
     </dependency>
     <dependency>
       <groupId>br.com.goahead.metadata</groupId>
@@ -45,20 +73,20 @@
       <type>yaml</type>
     </dependency>
     <dependency>
+      <groupId>br.com.goahead.sequence</groupId>
+      <artifactId>SalesforceinboundErrorHanlder</artifactId>
+      <version>1.0.0</version>
+      <type>xml</type>
+    </dependency>
+    <dependency>
       <groupId>br.com.goahead.endpoint</groupId>
       <artifactId>RDBMSGetNewAccounts</artifactId>
       <version>1.0.0</version>
       <type>xml</type>
     </dependency>
     <dependency>
-      <groupId>br.com.goahead.lib</groupId>
-      <artifactId>salesforcerest-connector</artifactId>
-      <version>1.1.0</version>
-      <type>zip</type>
-    </dependency>
-    <dependency>
       <groupId>br.com.goahead.sequence</groupId>
-      <artifactId>SyncAccountDataSeq</artifactId>
+      <artifactId>SalesforceinboundHanlder</artifactId>
       <version>1.0.0</version>
       <type>xml</type>
     </dependency>

@@ -20,4 +20,13 @@
     <artifact name="SyncAPI_metadata" groupId="br.com.goahead.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
         <file>src/main/resources/metadata/SyncAPI_metadata.yaml</file>
     </artifact>
+    <artifact name="SalesforceinboundEP" groupId="br.com.goahead.inbound-endpoint" version="1.0.0" type="synapse/inbound-endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/inbound-endpoints/SalesforceinboundEP.xml</file>
+    </artifact>
+    <artifact name="SalesforceinboundHanlder" groupId="br.com.goahead.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/SalesforceinboundHanlder.xml</file>
+    </artifact>
+    <artifact name="SalesforceinboundErrorHanlder" groupId="br.com.goahead.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/SalesforceinboundErrorHanlder.xml</file>
+    </artifact>
 </artifacts>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="SalesforceinboundHanlder" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <log>
+        <property name="BodyReceived" value="$body"/>
+    </log>
+    <payloadFactory media-type="text">
+        <format>
+			createdDate,Name,Id
+			$1,$2,$3
+		</format>
+        <args>
+            <arg evaluator="xml" expression="//event/createdDate"/>
+            <arg evaluator="xml" expression="//sobject/Name"/>
+            <arg evaluator="xml" expression="//sobject/Id"/>
+        </args>
+    </payloadFactory>
+    <log>
+        <property name="CsvContent" value="$body"/>
+    </log>
+    <property expression="$body/ns:text" name="content" scope="default" type="STRING" xmlns:ns="http://ws.apache.org/commons/ns/payload"/>
+    <file.createDirectory/>
+</sequence>
